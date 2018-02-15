@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <%= link_to "Inicio", root_path, class: "navbar-brand", id: "logo" %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+
+            <ul class="navbar-nav mr-auto">
+              <% if logged_in? %>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Agregar</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <%= link_to "Sucursal", new_sucursal_path, class: "dropdown-item" %>
+                        <%= link_to "Empleado", new_empleado_path, class: "dropdown-item" %>
+                    </div>
+                </li>
+              <% end %>
+            </ul>
+            <% if logged_in? %>
+                <%= link_to "Cerrar Sesion", logout_path, class: "btn btn-outline-danger my-2 my-sm-0", method: :delete %>
+            <% else %>
+                <%= form_for(:session, :html => {class: "form-inline my-2 my-lg-0", role: "form", id: "login_form"}, url: login_path) do |f| %>
+                    <%= f.email_field :email, class: "form-control mr-sm-2",placeholder: "Correo", 'data-required' => "required" %>
+                    <%= f.password_field :password, class: "form-control mr-sm-2", placeholder: "Password", autocomplete: "off", 'data-required' => "required" %>
+                    <%= f.submit "Iniciar Sesion", class: "btn btn-outline-success my-2 my-sm-0" %>
+                <% end %>
+            <% end %>
+      </div>
+</nav>

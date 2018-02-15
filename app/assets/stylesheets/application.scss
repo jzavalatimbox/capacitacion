@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+
+body {
+  padding-top: 3.5rem;
+}
+
+.invalid {
+  border-color: #dc3545;
+}
+
+.invalid:focus {
+  border-color: #dc3545;
+  box-shadow:0 0 0 .2rem rgba(220,53,69,.25)
+}

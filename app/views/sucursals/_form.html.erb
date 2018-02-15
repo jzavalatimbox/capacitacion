@@ -1,0 +1,101 @@
+<div class="row">
+  <div class="col-sm-8 offset-sm-2">
+    <%= form_for(@sucursal, :html => {class: "form-horizontal", role: "form", id: "validation_form" }) do |f| %>
+      <div class="form-group">
+        <%= f.text_field :nombre, class: "form-control", placeholder: "Nombre", autofocus: true, 'data-required' => "required" %>
+      </div>
+      <div class="form-group">
+          <%= f.text_field :calle, class: "form-control", placeholder: "Calle", autofocus: true %>
+      </div>
+
+      <div class="form-group">
+          <%= f.text_field :colonia, class: "form-control", placeholder: "Colonia", autofocus: true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.number_field :numero_exterior, id: "numext", class: "form-control", placeholder: "Numero Exterior", autofocus: true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.number_field :numero_interior, id: "numint", class: "form-control", placeholder: "Numero Interior", autofocus: true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.number_field :codigo_postal, id: "codigo", class: "form-control", placeholder: "Codigo Postal", autofocus: true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.text_field :ciudad, class: "form-control", placeholder: "Ciudad", autofocus: true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.text_field :pais, class: "form-control", placeholder: "Pais", autofocus: true %>
+      </div>
+
+      <% if @sucursal.new_record? %>
+        <hr>
+        <h3 align="center">Empleados</h3>
+        <br>
+        <div align="right">
+            <%= f.add_nested_fields_link :empleados, 'Agregar Empleado', class: "btn btn-primary" %>
+        </div>
+        <br>
+        <%= f.nested_fields_for :empleados, wrapper_options: { class: 'row center' } do |ff| %>
+            <div class ="row">
+                <div class="col-sm-4">
+                  <%= ff.text_field :nombre, class: "form-control", placeholder: "Nombre", autofocus: true %>
+                </div>
+                <div class="col-sm-3">
+                  <%= ff.text_field :rfc, class: "form-control", placeholder: "RFC", autofocus: true %>
+                </div>
+                <div class="col-sm-4">
+                  <%= ff.text_field :puesto, class: "form-control", placeholder: "Puesto", autofocus: true %>
+                </div>
+                <div class="col-sm-1">
+                  <%= ff.remove_nested_fields_link 'Borrar', class: "btn btn-danger" %>
+                </div>
+
+            </div>
+            <br>
+        <% end %>
+      <% else %>
+        <% if @sucursal.empleados.count > 0 %>
+            <hr>
+            <h3 align="center">Empleados</h3>
+            <br>
+            <div class="row">
+              <div class="col-md-10 offset-md-1">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Nombre</th>
+                        <th>RFC</th>
+                        <th>Puesto</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <%= render 'empleados/empleado', obj: @sucursal.empleados %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+        <% else %>
+            <hr>
+            <h3 align="center">No hay empleados</h3>
+            <br>
+        <% end %>
+
+      <% end %>
+      <br>
+      <div class="form-group">
+        <div align="center">
+          <%= link_to "Cancelar", root_path, class: "btn btn-danger btn-lg" %>
+          <%= f.submit(@sucursal.new_record? ? "Registrar" : "Actualizar", class: "btn btn-success btn-lg") %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

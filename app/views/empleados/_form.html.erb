@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-sm-8 offset-sm-2">
+    <%= form_for(@empleado, :html => {class: "form-horizontal", role: "form", id: "validation_form"}) do |f| %>
+      <div class="form-group">
+        <% sucursales = current_empresa.sucursals.all.map { |sucursal| [sucursal.nombre, sucursal.id] } %>
+        <%= f.select(:sucursal_id, options_for_select(sucursales, :selected => @empleado.sucursal_id),{}, {class: "form-control"}) %>
+      </div>
+
+      <div class="form-group">
+        <%= f.text_field :nombre, class: "form-control", placeholder: "Nombre", autofocus: true, 'data-required' => "required"%>
+      </div>
+
+      <div class="form-group">
+        <% if @empleado.new_record? %>
+          <%= f.text_field :rfc, class: "form-control", placeholder: "RFC", autofocus: true, 'data-required' => "required" %>
+        <% else %>
+          <%= f.text_field :rfc, class: "form-control", placeholder: "RFC", autofocus: true, 'data-required' => "required", readonly: true%>
+        <% end %>
+      </div>
+
+      <div class="form-group">
+        <%= f.text_field :puesto, class: "form-control", placeholder: "Puesto", autofocus: true %>
+      </div>
+
+      <div class="form-group" align="center">
+        <%= link_to "Cancelar", @empleado.new_record? ? root_path : edit_sucursal_path(@empleado.sucursal), class: "btn btn-danger btn-lg" %>
+        <%= f.submit(@empleado.new_record? ? "Registrar" : "Actualizar", class: "btn btn-success btn-lg") %>
+      </div>
+    <% end %>
+  </div>
+</div>

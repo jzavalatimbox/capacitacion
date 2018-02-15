@@ -9,6 +9,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/navigation' %>
+    <br>
+    <main role="main">
+      <div class="container">
+        <%= render 'layouts/messages' %>
+
+        <%= yield %>
+        <%= insert_paloma_hook %>
+      </div>
+    </main>
+
   </body>
 </html>

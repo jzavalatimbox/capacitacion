@@ -1,0 +1,11 @@
+<% obj.each do |empleado| %>
+<tr>
+  <td><%= empleado.nombre %></td>
+  <td><%= empleado.rfc %></td>
+  <td><%= empleado.puesto %></td>
+  <td>
+      <%= link_to "Editar", edit_empleado_path(empleado), class: "btn btn-primary btn-sm" %>
+      <%= link_to "Eliminar", empleado_path(empleado), class: "btn btn-danger btn-sm", data: {:confirm => 'Estas seguro?'}, :method => :delete %>
+  </td>
+</tr>
+<% end %>

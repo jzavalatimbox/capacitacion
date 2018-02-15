@@ -1,0 +1,24 @@
+<% if @sucursals.count > 0 %>
+  <h1 align="center">Sucursales</h1>
+  <br>
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Empleados</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render 'sucursal', obj: @sucursals %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <h1 align="center">No hay sucursales</h1>
+<% end %>
