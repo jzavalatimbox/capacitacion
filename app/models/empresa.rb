@@ -1,5 +1,7 @@
 class Empresa < ApplicationRecord
     has_many :sucursals
+    validates :nombre_completo, presence: true
+    validates :rfc, presence: true
     validates :nombre_empresa, presence: true,
               uniqueness: { case_sensitive: false }
     validates :email, presence: true,

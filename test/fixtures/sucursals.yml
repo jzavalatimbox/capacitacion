@@ -4,8 +4,33 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+sucursal_nueva:
+  nombre: "Sucursal Nueva"
+  calle: "Av. Republica de Peru"
+  colonia: "Cuauhtemoc Sur"
+  numero_exterior: 418
+  codigo_postal: 21200
+  ciudad: "Mexicali"
+  pais: "Mexico"
+  empresa: timbox
+
+sucursal_matriz:
+  nombre: "Matriz"
+  calle: "Av. Narciso Arreola"
+  colonia: "Infonavit Cucapah"
+  numero_exterior: 1062
+  codigo_postal: 21340
+  ciudad: "Mexicali"
+  pais: "Mexico"
+  empresa: timbox
+
+sucursal_1:
+  nombre: "Sucursal 1"
+  calle: "Av. Madero"
+  colonia: "Industrial"
+  numero_exterior: 432
+  numero_interior: 1
+  codigo_postal: 21210
+  ciudad: "Tijuana"
+  pais: "Mexico"
+  empresa: docdigitales

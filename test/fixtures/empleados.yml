@@ -4,8 +4,26 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+empleado_1:
+  nombre: "Jesus Zavala"
+  rfc: "ZAVJ931223A89"
+  puesto: "Director General"
+  sucursal: sucursal_matriz
+
+empleado_2:
+  nombre: "Alfredo Valle"
+  rfc: "VALA931223A89"
+  puesto: "Developer"
+  sucursal: sucursal_matriz
+
+empleado_3:
+  nombre: "Cesar Flores"
+  rfc: "FLOC921105H23"
+  puesto: "Designer"
+  sucursal: sucursal_nueva
+
+empleado_4:
+  nombre: "Oliver Toledo"
+  rfc: "TOLO910826V12"
+  puesto: "Designer"
+  sucursal: sucursal_1
