@@ -14,7 +14,7 @@ class SucursalesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get edit page" do
-
+    
     post "/login", params: { session: {  email: "jesus.zavala@timbox.com.mx", password: "testpassword"}}
     assert_response :redirect
     follow_redirect!

@@ -54,11 +54,22 @@ Paloma.controller('Sucursals', {
         fields = ['#sucursal_nombre']
         if(!validate_fields(fields))
           display_message('Hay campos que son requeridos','danger')
+    },
+
+    update: function(){
+        fields = ['#sucursal_nombre']
+        if(!validate_fields(fields))
+          display_message('Hay campos que son requeridos','danger')
     }
 });
 
 Paloma.controller('Empleados', {
     create: function(){
+        fields = ['#empleado_sucursal_id', '#empleado_nombre', '#empleado_rfc']
+        if(!validate_fields(fields))
+          display_message('Hay campos que son requeridos','danger')
+    },
+    update: function(){
         fields = ['#empleado_sucursal_id', '#empleado_nombre', '#empleado_rfc']
         if(!validate_fields(fields))
           display_message('Hay campos que son requeridos','danger')

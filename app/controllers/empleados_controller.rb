@@ -31,7 +31,7 @@ class EmpleadosController < ApplicationController
       redirect_to root_path
     else
       flash[:danger] = "Hay campos que se requieren"
-      redirect_to edit_empleado_path
+      render 'edit'
     end
   end
 

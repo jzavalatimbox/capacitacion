@@ -6,7 +6,8 @@ class NewSucursalFlowTest < ActionDispatch::IntegrationTest
     get "/"
     assert_response :success
 
-    post "/login", params: { session: {  email: "jesus.zavala@timbox.com.mx", password: "testpassword"}}
+    post "/login",
+    params: { session: { email: "jesus.zavala@timbox.com.mx", password: "testpassword" } }
     assert_response :redirect
     follow_redirect!
     assert_response :success
@@ -24,6 +25,7 @@ class NewSucursalFlowTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_response :success
     assert_select "h1", "Sucursales"
+
 
   end
 
