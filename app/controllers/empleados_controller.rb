@@ -17,20 +17,16 @@ class EmpleadosController < ApplicationController
   def create
     @empleado = Empleado.new(empleado_params)
     if @empleado.save
-      flash[:success] = "Empleado creado exitosamente"
       redirect_to root_path
     else
-      flash[:danger] = "Hay campos que se requieren"
       render 'new'
     end
   end
 
   def update
     if @empleado.update(empleado_params)
-      flash[:success] = "Empleado modificado exitosamente"
       redirect_to root_path
     else
-      flash[:danger] = "Hay campos que se requieren"
       render 'edit'
     end
   end
@@ -38,7 +34,6 @@ class EmpleadosController < ApplicationController
   def destroy
     @sucursal = @empleado.sucursal
     @empleado.destroy
-    flash[:success] = "Empleado eliminado"
     redirect_to edit_sucursal_path(@sucursal)
   end
 
@@ -53,7 +48,6 @@ class EmpleadosController < ApplicationController
 
     def require_same_sucursal
       if current_empresa != @empleado.sucursal.empresa
-        flash[:danger] = "Solo puedes acceder a tus empleados"
         redirect_to root_path
       end
     end

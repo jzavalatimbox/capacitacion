@@ -21,10 +21,8 @@ class SucursalsController < ApplicationController
     @sucursal.empresa = current_empresa
 
     if @sucursal.save
-      flash[:success] = "Sucursal creada exitosamente"
-      redirect_to root_path
+      redirect_to sucursals_path
     else
-      flash[:danger] = "Hay campos que se requieren"
       render 'new'
     end
 
@@ -32,17 +30,14 @@ class SucursalsController < ApplicationController
 
   def update
     if @sucursal.update(sucursal_params)
-      flash[:success] = "Sucursal modificada exitosamente"
-      redirect_to root_path
+      redirect_to sucursals_path
     else
-      flash[:danger] = "Hay campos que se requieren"
       render 'edit'
     end
   end
 
   def destroy
     @sucursal.destroy
-    flash[:success] = "Sucursal eliminada"
     redirect_to sucursals_path
   end
 
@@ -57,7 +52,6 @@ class SucursalsController < ApplicationController
 
     def require_same_empresa
       if current_empresa != @sucursal.empresa
-        flash[:danger] = "Solo puedes acceder a tus sucursales"
         redirect_to root_path
       end
     end

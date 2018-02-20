@@ -9,7 +9,6 @@ class EmpresasController < ApplicationController
     @empresa = Empresa.new(empresa_params)
     if @empresa.save
         session[:empresa_id] = @empresa.id
-        flash[:success] = "Registro exitoso"
         redirect_to root_path
     else
       js :matching_passwords => (@empresa.password == @empresa.password_confirmation), :password_empty => @empresa.password.blank?

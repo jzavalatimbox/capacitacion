@@ -22,7 +22,6 @@ class NewSucursalFlowTest < ActionDispatch::IntegrationTest
       codigo_postal: 21100, ciudad: "Mexicali", pais: "Mexico" }}
     assert_response :redirect
     follow_redirect!
-    follow_redirect!
     assert_response :success
     assert_select "h1", "Sucursales"
 

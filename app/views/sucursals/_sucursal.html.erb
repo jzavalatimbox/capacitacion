@@ -1,10 +1,10 @@
 <% obj.each do |sucursal| %>
   <tr>
     <td><%= sucursal.nombre %></td>
-    <td><%= sucursal.empleados.count %></td>
-    <td>
-        <%= link_to "Editar", edit_sucursal_path(sucursal), class: "btn btn-primary btn-sm" %>
-        <%= link_to "Eliminar", sucursal_path(sucursal), class: "btn btn-danger btn-sm", data: {:confirm => 'Estas seguro?'}, :method => :delete %>
+    <td align="center"><%= sucursal.empleados.count %></td>
+    <td align="right">
+          <%= link_to "Editar", edit_sucursal_path(sucursal), class: "btn btn-info btn-sm" %>
+          <%= link_to "Eliminar", sucursal_path(sucursal), class: "btn btn-danger btn-sm", data: {:confirm => 'Estas seguro?'}, :method => :delete %>
     </td>
   </tr>
 <% end %>

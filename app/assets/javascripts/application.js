@@ -50,6 +50,9 @@ Paloma.controller('Sessions', {
 });
 
 Paloma.controller('Sucursals', {
+    index: function() {
+      console.log(this.params)
+    },
     create: function(){
         fields = ['#sucursal_nombre']
         if(!validate_fields(fields))
