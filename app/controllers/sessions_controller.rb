@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
 
   def new
-    redirect_to root_path
   end
 
   def create
@@ -10,9 +9,8 @@ class SessionsController < ApplicationController
         session[:empresa_id] = empresa.id
         redirect_to sucursals_path
     else
-      js :campos_vacios => (params[:session][:email].downcase.blank? || params[:session][:password].blank?)
-      @empresa = Empresa.new
-      render 'empresas/new'
+      js :auth => false
+      render 'new'
     end
 
   end

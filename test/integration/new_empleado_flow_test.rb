@@ -23,5 +23,5 @@ class NewEmpleadoFlowTest < ActionDispatch::IntegrationTest
     assert_select "h1", "Sucursales"
 
   end
-  
+
 end

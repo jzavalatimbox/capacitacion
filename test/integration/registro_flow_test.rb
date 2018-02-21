@@ -3,12 +3,12 @@ require 'test_helper'
 class RegistroFlowTest < ActionDispatch::IntegrationTest
 
     test "can see register page" do
-      get "/"
+      get "/signup"
       assert_select "h1", "Registrar Empresa"
     end
 
     test "can register empresa" do
-      get "/"
+      get "/signup"
       assert_response :success
 
       post "/empresas",
@@ -21,7 +21,7 @@ class RegistroFlowTest < ActionDispatch::IntegrationTest
     end
 
     test "can sign in" do
-      get "/"
+      get "/login"
       assert_response :success
 
       post "/login",

@@ -20,11 +20,10 @@
             <% if logged_in? %>
                 <%= link_to "Cerrar Sesion", logout_path, class: "btn btn-outline-danger my-2 my-sm-0", method: :delete %>
             <% else %>
-                <%= form_for(:session, :html => {class: "form-inline my-2 my-lg-0", role: "form", id: "login_form"}, url: login_path) do |f| %>
-                    <%= f.email_field :email, class: "form-control mr-sm-2",placeholder: "Correo", 'data-required' => "required" %>
-                    <%= f.password_field :password, class: "form-control mr-sm-2", placeholder: "Password", autocomplete: "off", 'data-required' => "required" %>
-                    <%= f.submit "Iniciar Sesion", class: "btn btn-outline-success my-2 my-sm-0" %>
-                <% end %>
+              <div>
+                <%= link_to "Iniciar Sesion", login_path, class: "btn btn-outline-primary my-2 my-sm-0" %>
+                <%= link_to "Registrar Empresa", signup_path, class: "btn btn-outline-success my-2 my-sm-0" %>
+              </div>
             <% end %>
       </div>
 </nav>

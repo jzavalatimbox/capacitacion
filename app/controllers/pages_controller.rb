@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def home
-    #redirect_to sucursals_path if logged_in?
+    redirect_to sucursals_path if logged_in?
   end
 
 end
