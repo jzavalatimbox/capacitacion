@@ -3,7 +3,18 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 Paloma.controller 'Sessions',
   create: ->
+    $(document).ready ->
+      $('#validation_form').on 'submit', (e) ->
+        fields = [
+          '#session_email'
+          '#session_password'
+        ]
+        if !validate_fields(fields)
+          display_message 'Hay campos que son requeridos', 'danger'
+          false
+      return
     if(!this.params.auth)
+      $('#session_email').val(this.params.email)
       display_message 'Los valores ingresados no se encuentran en el sistema. Intentelo nuevamente', 'danger'
     return
   new: ->

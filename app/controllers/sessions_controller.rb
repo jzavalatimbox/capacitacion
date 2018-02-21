@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         session[:empresa_id] = empresa.id
         redirect_to sucursals_path
     else
-      js :auth => false
+      js :auth => false, :email => params[:session][:email]
       render 'new'
     end
 
