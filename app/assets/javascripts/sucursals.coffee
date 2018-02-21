@@ -25,6 +25,7 @@ Paloma.controller 'Sucursals',
           x++
         if !validate_fields(fields)
             display_message 'Hay campos que son requeridos', 'danger'
+            scroll 0, 0
             false
       return
     return
@@ -36,6 +37,7 @@ Paloma.controller 'Sucursals',
         ]
         if !validate_fields(fields)
             display_message 'Hay campos que son requeridos', 'danger'
+            scroll 0, 0
             false
       return
     return
